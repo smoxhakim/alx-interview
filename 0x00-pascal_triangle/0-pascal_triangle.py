@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Return an empty list for non-positive n"""
 
+
 def pascal_triangle(n):
     """Return an empty list for non-positive n"""
 
