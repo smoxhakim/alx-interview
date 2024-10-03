@@ -1,14 +1,16 @@
 #!/usr/bin/python3
 def pascal_triangle(n):
+    """Return an empty list for non-positive n"""
+
     if n <= 0:
-        return [] 
+        return []
+    pas = [[1]]
+    for r_number in range(1, n):
+        r = [1]
+        for j in range(1, r_number):
+            element = pas[r_number - 1][j - 1] + pas[r_number - 1][j]
+            r.append(element)
+        r.append(1)
+        pas.append(r)
 
-    triangle = []  
-
-    for i in range(n):
-        row = [1] * (i + 1)  
-        for j in range(1, i):  
-            row[j] = triangle[i - 1][j - 1] + triangle[i - 1][j]
-        triangle.append(row) 
-
-    return triangle
+    return pas
