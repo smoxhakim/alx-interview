@@ -4,17 +4,17 @@
 
 def canUnlockAll(boxes):
     ''' Locked box challenge '''
-    boxes_length = len(boxes)
-    opened_boxes = [False] * boxes_length
-    opened_boxes[0] = True
-    keys_queue = []
-
-    keys_queue.extend(boxes[0])
-
-    while keys_queue:
-        key = keys_queue.pop(0)
-        if 0 <= key < boxes_length and not opened_boxes[key]:
-            opened_boxes[key] = True
-            keys_queue.extend(boxes[key])
-
-    return all(opened_boxes)
+    if len(boxes[0]) == 0:
+        return (False)
+    keys = {0}
+    size = len(boxes)
+    visited = {0}
+    keys = keys.union(boxes[0])
+    while size > 0:
+        for i in keys:
+            if i in visited:
+                continue
+            keys = keys.union(boxes[i])
+            visited.add(i)
+        size -= 1
+    return len(keys) == len(boxes)
