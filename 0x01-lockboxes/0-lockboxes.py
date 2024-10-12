@@ -1,4 +1,8 @@
+#!/usr/bin/python3
+''' Locked box challenge '''
+
 def canUnlockAll(boxes):
+    ''' Locked box challenge '''
     boxes_length = len(boxes)
     opened_boxes = [False] * boxes_length
     opened_boxes[0] = True
