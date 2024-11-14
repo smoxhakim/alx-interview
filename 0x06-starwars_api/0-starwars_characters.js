@@ -1,5 +1,6 @@
 #!/usr/bin/node
 
+// Import the 'request' module
 const request = require('request');
 
 if (process.argv.length > 2) {
